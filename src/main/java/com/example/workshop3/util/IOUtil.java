@@ -1,4 +1,4 @@
-package util;
+package com.example.workshop3.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +21,7 @@ public class IOUtil {
             String osName = System.getProperty("os.name");
             if (!osName.contains("Windows")) {
                 try {
+                    // read write execute permission
                     String perm = "rwxrwx---";
                     Set<PosixFilePermission> permissions = PosixFilePermissions.fromString(perm);
                     Files.setPosixFilePermissions(dir.toPath(), permissions);

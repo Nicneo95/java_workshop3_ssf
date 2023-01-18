@@ -1,4 +1,4 @@
-package controller;
+package com.example.workshop3.controller;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.workshop3.models.Contact;
+import com.example.workshop3.util.Contacts;
+
 import jakarta.validation.Valid;
-import models.Contact;
-import util.Contacts;
 
 import org.springframework.validation.BindingResult;
 
@@ -30,7 +31,6 @@ public class AddressbookController {
     @Autowired
     ApplicationArguments appArgs;
 
-    @Value("${test.data.dir}")
     private String dataDir;
 
     @GetMapping

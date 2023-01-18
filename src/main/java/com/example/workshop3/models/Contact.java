@@ -1,4 +1,4 @@
-package models;
+package com.example.workshop3.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -70,20 +70,7 @@ public class Contact implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-    // a method to generate a id
-    /* Synchronized - method or block of code can only be accessed by one thread at a time  
-    */ 
-    private synchronized String generateId(int numChars) {
-        Random r = new Random();
-        // building large string from smaller strings 
-        StringBuilder sb = new StringBuilder();
-        while (sb.length() < numChars) {
-            sb.append(Integer.toHexString(r.nextInt()));
-        }
-        // substring to shorten the length of the string  
-        return sb.toString().substring(0, numChars);
-    }
-
+    
     public String getName() {
         return name;
     }
@@ -120,6 +107,21 @@ public class Contact implements Serializable {
         return dateOfBirth;
     }
 
+    // a method to generate a id
+    /* Synchronized - method or block of code can only be accessed by one thread at a time  
+    */ 
+    private synchronized String generateId(int numChars) {
+        Random r = new Random();
+        // building large string from smaller strings 
+        StringBuilder sb = new StringBuilder();
+        while (sb.length() < numChars) {
+            sb.append(Integer.toHexString(r.nextInt()));
+        }
+        // substring to shorten the length of the string  
+        return sb.toString().substring(0, numChars);
+    }
+
+    // method to set the date of birth and calculate the age 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         int calculatedAge = 0;
         if ((dateOfBirth != null)) {
